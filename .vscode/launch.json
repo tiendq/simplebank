@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Gdb",
+      "preLaunchTask": "Build Debug",
+      "request": "launch",
+      "type": "cppdbg",
+      "program": "${workspaceFolder}/a.out",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "externalConsole": false
+    }
+  ]
+}
