@@ -6,9 +6,9 @@
     {
       "label": "Build Debug",
       "type": "shell",
-      "command": "g++",
+      "command": "cmake",
       "args": [
-        "main.cpp", "-std=c++11", "-g"
+        "--build", "./build"
       ],
       "group": {
         "kind": "build",

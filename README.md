@@ -8,7 +8,7 @@ Simple bank management in modern C++ stack (STL, Boost, unit test, CMake).
 
 ## Prerequisites
 * [Boost](https://www.boost.org/)
-* [CMake](https://cmake.org/), check your CMake version in terminal by `cmake -version`
+* [CMake](https://cmake.org/)
 
 ## Build
 Configure the project build with the following command to create the build directory with the configuration.

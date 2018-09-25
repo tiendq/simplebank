@@ -6,7 +6,7 @@
       "preLaunchTask": "Build Debug",
       "request": "launch",
       "type": "cppdbg",
-      "program": "${workspaceFolder}/a.out",
+      "program": "${workspaceFolder}/build/bin/sb",
       "cwd": "${workspaceFolder}",
       "MIMode": "gdb",
       "externalConsole": false
