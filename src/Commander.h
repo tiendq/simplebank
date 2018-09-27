@@ -3,6 +3,8 @@
 
 #include <boost/program_options.hpp>
 
+namespace po = boost::program_options;
+
 namespace bank {
   class Commander {
     public:
@@ -13,8 +15,8 @@ namespace bank {
       void printHelp();
       void runTask();
 
-      boost::program_options::options_description m_description;
-      boost::program_options::variables_map m_options;
+      po::options_description m_description;
+      po::variables_map m_options;
   };
 }; // bank
 
