@@ -1,12 +1,21 @@
 Simple Bank
 ===========
-Simple Bank is a command-line tool implemented with modern C++ stack (STL, Boost, unit test, CMake. LevelDB). This project was inspired by the project [Bank Management](https://github.com/smokindinesh/Mini-Project-in-C) implemented in C programming language.
+Simple Bank is a command-line tool implemented with modern C++ stack (STL, Boost, unit testing, CMake LevelDB). This project was inspired by the project [Bank Management](https://github.com/smokindinesh/Mini-Project-in-C) implemented in C programming language.
 
 ## Features
 * Build with CMake
 * LevelDB database
 * Logging with Boost.Log
 * Unit testing with Boost.Test
+
+## Bank Functions
+* Account management (open, close, list, view)
+* Deposit/widthraw cash to/from account
+* Transfer fund between accounts
+* Transaction log
+* Changable interest rate, automatically calculate compound interest
+
+Run program with `--help` for list of available commands and options.
 
 ## Prerequisites
 * [Boost](https://www.boost.org/)

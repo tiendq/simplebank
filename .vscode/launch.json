@@ -2,13 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Gdb",
+      "name": "Launch Debugger",
       "preLaunchTask": "Build Debug",
       "request": "launch",
       "type": "cppdbg",
       "program": "${workspaceFolder}/build/bin/sb",
       "cwd": "${workspaceFolder}",
-      "MIMode": "gdb",
+      "MIMode": "lldb",
       "externalConsole": false
     }
   ]
