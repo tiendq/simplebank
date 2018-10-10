@@ -12,14 +12,14 @@ file(GLOB PROJECT_SOURCES LIST_DIRECTORIES false src/*.cpp)
 # Set the output folder where your program will be created
 set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/build/bin")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W -Wall -Wconversion -Wshadow -Wcast-qual -Wold-style-cast -Weffc++")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W -Wall -Wcast-qual -Wconversion -Weffc++ -Wold-style-cast -Wpedantic -Wshadow-all")
 
+add_subdirectory(src/tests)
 add_executable(${MAIN_TARGET_NAME} ${PROJECT_SOURCES})
 
 target_compile_features(${MAIN_TARGET_NAME} PRIVATE cxx_std_14)
-
-target_include_directories(${MAIN_TARGET_NAME} PRIVATE /usr/local/include/boost)
-
+target_compile_definitions(${MAIN_TARGET_NAME} PRIVATE "BOOST_TEST_DYN_LINK=1")
 target_link_libraries(${MAIN_TARGET_NAME}
   PRIVATE boost_program_options
-  PRIVATE boost_unit_test_framework)
+  PRIVATE boost_unit_test_framework
+)
