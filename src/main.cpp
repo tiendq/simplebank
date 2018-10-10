@@ -2,7 +2,7 @@
 #include "Commander.h"
 
 using namespace std;
-using namespace bank;
+using namespace SimpleBank;
 
 int main(int argc, char const *argv[]) {
   cout << "Simple Bank, the command-line bank management tool\n";
