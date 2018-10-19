@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12.0)
+cmake_minimum_required(VERSION 3.12)
 project(simplebank)
 
 message(STATUS "Building for ${CMAKE_SYSTEM_NAME} system")
@@ -18,8 +18,4 @@ add_subdirectory(src/tests)
 add_executable(${MAIN_TARGET_NAME} ${PROJECT_SOURCES})
 
 target_compile_features(${MAIN_TARGET_NAME} PRIVATE cxx_std_14)
-target_compile_definitions(${MAIN_TARGET_NAME} PRIVATE "BOOST_TEST_DYN_LINK=1")
-target_link_libraries(${MAIN_TARGET_NAME}
-  PRIVATE boost_program_options
-  PRIVATE boost_unit_test_framework
-)
+target_link_libraries(${MAIN_TARGET_NAME} PRIVATE boost_program_options)
