@@ -6,14 +6,22 @@
 namespace po = boost::program_options;
 
 namespace SimpleBank {
+enum class TaskList {
+  None,
+  Help,
+  OpenAccount
+};
+
+std::ostream& operator << (std::ostream& os, TaskList const &task);
+
 class Commander {
 public:
-  void start(int argc, char const *argv[]);
+  TaskList start(int argc, char const *argv[]);
 
 private:
   void createOptionList();
   void printHelp();
-  void runTask();
+  TaskList runTask();
 
   po::options_description m_description;
   po::variables_map m_options;

@@ -4,24 +4,35 @@
 using namespace std;
 
 namespace SimpleBank {
-void Commander::start(int argc, char const *argv[]) {
+ostream& operator << (ostream& os, TaskList const &task) {
+  os << static_cast<int>(task);
+  return os;
+}
+
+TaskList Commander::start(int argc, char const *argv[]) {
   createOptionList();
 
   try {
     po::store(po::parse_command_line(argc, argv, m_description), m_options);
   }
   catch (po::error const &e) {
-      cerr << "Error: " << e.what() << "\n";
+    cerr << "Error: " << e.what() << "\n";
+    return TaskList::None;
   }
 
   if (!m_options.empty())
-    runTask();
+    return runTask();
+  else
+    return TaskList::None;
 }
 
-void Commander::runTask() {
+TaskList Commander::runTask() {
   if (m_options.count("help")) {
     printHelp();
+    return TaskList::Help;
   }
+
+  return TaskList::None;
 }
 
 void Commander::createOptionList() {
@@ -62,7 +73,7 @@ void Commander::createOptionList() {
 }
 
 void Commander::printHelp() {
-  cout << "Usage: sb <command> [option]\n\n";
+  cout << "\nUsage: sb <command> [option]\n";
   cout << m_description << "\n";
 }
 }; // SimpleBank

@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
   cout << "https://github.com/tiendq/simplebank\n";
 
   if (argc <= 1) {
-    cout << "Use --help for list of available commands and options.\n";
+    cout << "\nUse --help for list of available commands and options.\n";
   }
   else {
     Commander cmd;
