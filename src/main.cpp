@@ -8,10 +8,10 @@ using namespace SimpleBank;
 
 int main(int argc, char const *argv[]) {
   cout << "Simple Bank, the command-line bank management tool\n";
-  cout << "https://github.com/tiendq/simplebank\n";
+  cout << "https://github.com/tiendq/simplebank\n\n";
 
   if (argc <= 1) {
-    cout << "\nUse --help for list of available commands and options.\n";
+    cout << "Use --help for list of available commands and options.\n";
   }
   else {
     Commander cmd;

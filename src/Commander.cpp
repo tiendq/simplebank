@@ -4,6 +4,7 @@
 using namespace std;
 
 namespace SimpleBank {
+
 ostream& operator << (ostream& os, TaskList const &task) {
   os << static_cast<int>(task);
   return os;
@@ -32,6 +33,51 @@ TaskList Commander::runTask() {
     return TaskList::Help;
   }
 
+  if (m_options.count("open-account")) {
+    openAccount();
+    return TaskList::OpenAccount;
+  }
+
+  if (m_options.count("close-account")) {
+    closeAccount();
+    return TaskList::CloseAccount;
+  }
+
+  if (m_options.count("view-account")) {
+    viewAccount();
+    return TaskList::ViewAccount;
+  }
+
+  if (m_options.count("list-account")) {
+    listAccount();
+    return TaskList::ListAccount;
+  }
+
+  if (m_options.count("deposit")) {
+    depositCash();
+    return TaskList::Deposit;
+  }
+
+  if (m_options.count("widthdraw")) {
+    widthdrawCash();
+    return TaskList::Widthdraw;
+  }
+
+  if (m_options.count("transfer")) {
+    transferCash();
+    return TaskList::Transfer;
+  }
+
+  if (m_options.count("list-transaction")) {
+    listTransaction();
+    return TaskList::ListTransaction;
+  }
+
+  if (m_options.count("interest-rate")) {
+    changeInterestRate();
+    return TaskList::ChangeInterestRate;
+  }
+
   return TaskList::None;
 }
 
@@ -55,7 +101,7 @@ void Commander::createOptionList() {
   add = options.add_options();
 
   add("name", po::value<string>()->value_name("<name>"),
-      "Full name of account owner.");
+      "Full name of account owner of opening account.");
   add("balance", po::value<double>()->value_name("<balance>"),
       "Initial balance of opening account.");
   add("account", po::value<string>()->value_name("<number>"),
@@ -66,14 +112,33 @@ void Commander::createOptionList() {
       "Source account number where cash is being transferred from.");
   add("target", po::value<string>()->value_name("<number>"),
       "Target account number where cash is being transferred to.");
-  add("time", po::value<int>()->value_name("<days>"),
+  add("days", po::value<int>()->value_name("<d>"),
       "Period of time in days for listing transactions, default last 30 days.");
 
   m_description.add(commands).add(options);
 }
 
 void Commander::printHelp() {
-  cout << "\nUsage: sb <command> [option]\n";
+  cout << "Usage: sb <command> [options]\n";
   cout << m_description << "\n";
 }
+
+void Commander::openAccount() {}
+
+void Commander::closeAccount() {}
+
+void Commander::viewAccount() {}
+
+void Commander::listAccount() {}
+
+void Commander::depositCash() {}
+
+void Commander::widthdrawCash() {}
+
+void Commander::transferCash() {}
+
+void Commander::listTransaction() {}
+
+void Commander::changeInterestRate() {}
+
 }; // SimpleBank
