@@ -1,3 +1,5 @@
+#ifndef BOOST_UNIT_TEST
+
 #include <iostream>
 #include "Commander.h"
 
@@ -18,3 +20,5 @@ int main(int argc, char const *argv[]) {
 
   return 0;
 }
+
+#endif // BOOST_UNIT_TEST

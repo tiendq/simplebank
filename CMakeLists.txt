@@ -18,5 +18,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W -Wall -Wcast-qual -Wconversion -Weffc
 add_subdirectory(src/tests)
 add_executable(${MAIN_TARGET_NAME} ${SOURCE_CPP} ${SOURCE_HEADER})
 
+find_package(Boost REQUIRED program_options)
+target_include_directories(${MAIN_TARGET_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
+
 target_compile_features(${MAIN_TARGET_NAME} PRIVATE cxx_std_14)
-target_link_libraries(${MAIN_TARGET_NAME} PRIVATE boost_program_options)
+target_link_libraries(${MAIN_TARGET_NAME} PRIVATE Boost::program_options)
