@@ -25,6 +25,9 @@ Run program with `--help` for list of available commands and options.
 Configure the project build with the following command to create the build directory with the configuration.
 
 ```
+git clone git@github.com:tiendq/simplebank.git
+git submodule update --init
+
 mkdir build; cd build  # Create a build directory.
 cmake ..               # Configure the project.
 cmake --build .        # Build all default targets.
