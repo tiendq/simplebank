@@ -2,6 +2,7 @@
 #define __COMMANDER_H__
 
 #include <boost/program_options.hpp>
+#include "Bank.h"
 
 namespace po = boost::program_options;
 
@@ -43,6 +44,7 @@ private:
 
   po::options_description m_description;
   po::variables_map m_options;
+  Bank m_bank;
 };
 
 }; // SimpleBank

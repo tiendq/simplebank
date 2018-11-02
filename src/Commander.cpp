@@ -1,3 +1,4 @@
+#include <exception>
 #include <iostream>
 #include "Commander.h"
 
@@ -21,10 +22,16 @@ TaskList Commander::start(int argc, char const *argv[]) {
     return TaskList::None;
   }
 
-  if (!m_options.empty())
-    return runTask();
-  else
-    return TaskList::None;
+  if (!m_options.empty()) {
+    try {
+      return runTask();
+    }
+    catch (exception const &e) {
+      cout << "Error: " << e.what() << "\n";
+    }
+  }
+
+  return TaskList::None;
 }
 
 TaskList Commander::runTask() {
@@ -119,11 +126,28 @@ void Commander::createOptionList() {
 }
 
 void Commander::printHelp() {
+  cout << "Simple Bank, the command-line bank management tool\n";
+  cout << "https://github.com/tiendq/simplebank\n\n";
   cout << "Usage: sb <command> [options]\n";
   cout << m_description << "\n";
 }
 
-void Commander::openAccount() {}
+// Required: name
+// Optional: balance
+void Commander::openAccount() {
+  string name = "";
+  double balance = 0;
+
+  if (m_options.count("name"))
+    name = m_options["name"].as<string>();
+  else
+    throw invalid_argument("Required option '--name' is missing");
+
+  if (m_options.count("balance"))
+    balance = m_options["balance"].as<double>();
+
+  m_bank.openAccount(name, balance);
+}
 
 void Commander::closeAccount() {}
 
