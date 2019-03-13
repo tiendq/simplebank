@@ -15,6 +15,7 @@ set(CMAKE_BINARY_DIR "${CMAKE_SOURCE_DIR}/build/bin")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W -Wall -Wcast-qual -Wconversion -Weffc++ -Wold-style-cast -Wpedantic -Wshadow-all")
 
+add_subdirectory(libs/fmt)
 add_subdirectory(libs/SQLiteCpp)
 add_subdirectory(src/tests)
 add_executable(${MAIN_TARGET_NAME} ${SOURCE_CPP} ${SOURCE_HEADER})

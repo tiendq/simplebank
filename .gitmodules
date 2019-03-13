@@ -1,3 +1,6 @@
 [submodule "libs/SQLiteCpp"]
 	path = libs/SQLiteCpp
 	url = git@github.com:SRombauts/SQLiteCpp.git
+[submodule "libs/fmt"]
+	path = libs/fmt
+	url = git@github.com:fmtlib/fmt.git
